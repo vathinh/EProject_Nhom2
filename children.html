@@ -44,12 +44,12 @@
         </div>
       </nav>
       <section>
-        <form action="">
+        <form id="formSearch">
           <div id="children-adult">
           <h1>Children</h1>
           <div id="button-search">
-              <input type="search" placeholder="Search">
-              <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+              <input type="search" placeholder="Search" id="search" name="search">
+              <button type="submit" onclick="searchInfo()"><i class="fa-solid fa-magnifying-glass"></i></button>
           </div>
         </div>
         </form>
@@ -82,7 +82,7 @@
           </button>
         </div>  -->
       
-        <div class="container border">
+        <!-- <div class="container border">
           
           <div class="row">
             <div class="col-sm-4">
@@ -168,6 +168,21 @@
                 </div>
               </div>
             </div>
+
+          </div>
+        </div> -->
+        <div class="container border">
+          <div class="row product">
+
+          </div>
+        </div>
+        <div class="container border">
+          <div class="row product">
+
+          </div>
+        </div>
+        <div class="container border">
+          <div class="row product">
 
           </div>
         </div>
@@ -275,7 +290,7 @@
 </div>
 <!-- Copyright -->
 </footer>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="JS/main.js"></script>
       <!-- <script>
         var data = [

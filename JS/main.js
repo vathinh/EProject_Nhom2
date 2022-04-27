@@ -24,4 +24,110 @@
         function myFunction() {
             var element = document.body;
             element.classList.toggle("dark-mode");
-         }
+        }
+// Product
+var data = [
+  {"id":"f1","name":"Thiep1","img":"img/c1.jpg"},
+        
+  {"id":"f2","name":"Thiep2","img":"img/c2.png"},
+        
+  {"id":"f3","name":"Thiep3","img":"img/c3.png"}
+];
+
+displayImages(data);
+
+function displayImages(items) {
+    var s = ``;
+
+    $.each(items,function (k, v) {
+
+      s += `
+        <div class="col-sm-4">
+          <img src="${v.img}" alt="..." width="300px" height="300px" class="col border btn" data-bs-toggle="collapse" data-bs-target="#demo${v.id}">
+          <h2>${v.name}</h2>
+          <div id="demo${v.id}" class="collapse">
+            <div class="tab-content">
+              <div class="tab-pane container active" id="${v.id}">
+                <img src="img/thuphaphl.png" alt="">
+              </div>
+              <div class="tab-pane container fade" id="${v.id}">
+                <img src="img/thuphap1.png" alt="">
+              </div>
+              <div class="tab-pane container fade" id="${v.id}">
+                <img src="img/thuphap3.png" alt="">
+              </div>
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-bs-toggle="tab" href="#${v.id}">Font 01</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#${v.id}">Font 02</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#${v.id}">Font 03</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <img src="${v.img}" alt="..." width="300px" height="300px" class="col border btn" data-bs-toggle="collapse" data-bs-target="#demo${v.id}1">
+          <h2>${v.name}</h2>
+          <div id="demo${v.id}1" class="collapse">
+            <div class="tab-content">
+              <div class="tab-pane container active" id="${v.id}1">
+                <img src="img/thuphaphl.png" alt="">
+              </div>
+              <div class="tab-pane container fade" id="${v.id}2">
+                <img src="img/thuphap1.png" alt="">
+              </div>
+              <div class="tab-pane container fade" id="${v.id}3">
+                <img src="img/thuphap3.png" alt="">
+              </div>
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-bs-toggle="tab" href="#${v.id}1">Font 01</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#${v.id}2">Font 02</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#${v.id}3">Font 03</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `;
+      
+    });
+    
+    $(".product").html(s);
+}
+// function searchInfo(){
+//   var mysearch = $("#search").val();
+//   var s = "";
+//   var index = 0;
+//   for (var i in data){
+//       if(data[i].name.toLowerCase().search(mysearch.toLowerCase()) != -1){
+//           index++;
+//       s+="<br>"+index+"."+"Name: "+data[i].name;
+//       }
+  
+//   }
+//   if(index==0){
+//       s+="khong tim thay ten";
+//   }
+
+//   displayImages()
+// }
+$("#formSearch").submit(function (e) {
+  e.preventDefault();
+
+  var search = $("#search").val();
+  var re = new RegExp(search, "ig");
+  var subdata = data.filter(item => item.name.search(re) >= 0);
+  
+  displayImages(subdata);
+});
