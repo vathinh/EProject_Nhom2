@@ -26,20 +26,28 @@
             element.classList.toggle("dark-mode");
         }
 // Product
-var data = [
+var dataChildren = [
   {"id":"f1","name":"Thiep1","img":"img/c1.jpg"},
         
   {"id":"f2","name":"Thiep2","img":"img/c2.png"},
         
   {"id":"f3","name":"Thiep3","img":"img/c3.png"}
 ];
+// var dataAdult = [
+//   {"id":"f1","name":"Thiep1","img":"img/thiephl1.jpg"},
+        
+//   {"id":"f2","name":"Thiep2","img":"img/thiep2.jpg"},
+        
+//   {"id":"f3","name":"Thiep3","img":"img/thiep3.jpg"}
+// ];
 
-displayImages(data);
+
+displayImages(dataChildren);
 
 function displayImages(items) {
     var s = ``;
 
-    $.each(items,function (k, v) {
+    $.each(items,function (k,v) {
 
       s += `
         <div class="col-sm-4">
@@ -47,24 +55,24 @@ function displayImages(items) {
           <h2>${v.name}</h2>
           <div id="demo${v.id}" class="collapse">
             <div class="tab-content">
-              <div class="tab-pane container active" id="${v.id}">
+              <div class="tab-pane container active" id="${v.id}a">
                 <img src="img/thuphaphl.png" alt="">
               </div>
-              <div class="tab-pane container fade" id="${v.id}">
+              <div class="tab-pane container fade" id="${v.id}b">
                 <img src="img/thuphap1.png" alt="">
               </div>
-              <div class="tab-pane container fade" id="${v.id}">
+              <div class="tab-pane container fade" id="${v.id}c">
                 <img src="img/thuphap3.png" alt="">
               </div>
               <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active" data-bs-toggle="tab" href="#${v.id}">Font 01</a>
+                  <a class="nav-link active" data-bs-toggle="tab" href="#${v.id}a">Font 01</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-bs-toggle="tab" href="#${v.id}">Font 02</a>
+                  <a class="nav-link" data-bs-toggle="tab" href="#${v.id}b">Font 02</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-bs-toggle="tab" href="#${v.id}">Font 03</a>
+                  <a class="nav-link" data-bs-toggle="tab" href="#${v.id}c">Font 03</a>
                 </li>
               </ul>
             </div>
@@ -104,6 +112,7 @@ function displayImages(items) {
     });
     
     $(".product").html(s);
+    
 }
 // function searchInfo(){
 //   var mysearch = $("#search").val();
@@ -127,7 +136,8 @@ $("#formSearch").submit(function (e) {
 
   var search = $("#search").val();
   var re = new RegExp(search, "ig");
-  var subdata = data.filter(item => item.name.search(re) >= 0);
+  var subdataC = dataChildren.filter(item => item.name.search(re) >= 0);
+
   
-  displayImages(subdata);
+  displayImages(subdataC);
 });
