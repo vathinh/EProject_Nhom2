@@ -25,6 +25,9 @@
             var element = document.body;
             element.classList.toggle("dark-mode");
         }
+        function newFunction() {
+          alert("Your information has been submited!");
+        }
 // Product
 var dataChildren = [
   {"id":"f1","name":"Thiep1","img":"img/c1.jpg"},
