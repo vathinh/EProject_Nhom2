@@ -33,24 +33,25 @@ var dataChildren = [
         
   {"id":"f3","name":"Thiep3","img":"img/c3.png"}
 ];
-// var dataAdult = [
-//   {"id":"f1","name":"Thiep1","img":"img/thiephl1.jpg"},
+var dataAdult = [
+  {"id":"f1","name":"Thiep1","img":"img/thiephl1.jpeg"},
         
-//   {"id":"f2","name":"Thiep2","img":"img/thiep2.jpg"},
+  {"id":"f2","name":"Thiep2","img":"img/thiep2.jpg"},
         
-//   {"id":"f3","name":"Thiep3","img":"img/thiep3.jpg"}
-// ];
+  {"id":"f3","name":"Thiep3","img":"img/thiep3.jpg"}
+];
 
 
 displayImages(dataChildren);
 
 function displayImages(items) {
     var s = ``;
+    
 
     $.each(items,function (k,v) {
 
       s += `
-        <div class="col-sm-4">
+        <div class="col-md-4 col-sm-6">
           <img src="${v.img}" alt="..." width="300px" height="300px" class="col border btn" data-bs-toggle="collapse" data-bs-target="#demo${v.id}">
           <h2>${v.name}</h2>
           <div id="demo${v.id}" class="collapse">
@@ -79,7 +80,7 @@ function displayImages(items) {
           </div>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-md-4 col-sm-6">
           <img src="${v.img}" alt="..." width="300px" height="300px" class="col border btn" data-bs-toggle="collapse" data-bs-target="#demo${v.id}1">
           <h2>${v.name}</h2>
           <div id="demo${v.id}1" class="collapse">
@@ -111,9 +112,11 @@ function displayImages(items) {
       
     });
     
-    $(".product").html(s);
+    $("#productC").html(s);
     
 }
+
+
 // function searchInfo(){
 //   var mysearch = $("#search").val();
 //   var s = "";
