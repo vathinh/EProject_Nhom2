@@ -25,9 +25,6 @@
             var element = document.body;
             element.classList.toggle("dark-mode");
         }
-        function newFunction() {
-          alert("Your information has been submited!");
-        }
 // Product
 var dataChildren = [
   {"id":"f1","name":"Thiep1","img":"img/c1.jpg"},
@@ -36,21 +33,21 @@ var dataChildren = [
         
   {"id":"f3","name":"Thiep3","img":"img/c3.png"}
 ];
-var dataAdult = [
-  {"id":"f1","name":"Thiep1","img":"img/thiephl1.jpeg"},
-        
-  {"id":"f2","name":"Thiep2","img":"img/thiep2.jpg"},
-        
-  {"id":"f3","name":"Thiep3","img":"img/thiep3.jpg"}
+const newLocal = [
+  { "id": "f1", "name": "Thiep1", "img": "img/thiephl1.jpg" },
+
+  { "id": "f2", "name": "Thiep2", "img": "img/thiep2.jpg" },
+
+  { "id": "f3", "name": "Thiep3", "img": "img/thiep3.jpg" }
 ];
+var dataAdult = newLocal;
 
 
-displayImages(dataChildren);
+displayImages(dataChildren,dataAdult);
 
 function displayImages(items) {
     var s = ``;
-    
-
+    var a = ``;
     $.each(items,function (k,v) {
 
       s += `
@@ -116,10 +113,73 @@ function displayImages(items) {
     });
     
     $("#productC").html(s);
+    $.each(items,function (k,e) {
+
+      a += `
+        <div class="col-md-4 col-sm-6">
+          <img src="${e.img}" alt="..." width="300px" height="300px" class="col border btn" data-bs-toggle="collapse" data-bs-target="#demo${v.id}">
+          <h2>${e.name}</h2>
+          <div id="demo${e.id}" class="collapse">
+            <div class="tab-content">
+              <div class="tab-pane container active" id="${e.id}a">
+                <img src="img/thuphaphl.png" alt="">
+              </div>
+              <div class="tab-pane container fade" id="${e.id}b">
+                <img src="img/thuphap1.png" alt="">
+              </div>
+              <div class="tab-pane container fade" id="${e.id}c">
+                <img src="img/thuphap3.png" alt="">
+              </div>
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-bs-toggle="tab" href="#${e.id}a">Font 01</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#${e.id}b">Font 02</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#${e.id}c">Font 03</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <img src="${e.img}" alt="..." width="300px" height="300px" class="col border btn" data-bs-toggle="collapse" data-bs-target="#demo${v.id}1">
+          <h2>${e.name}</h2>
+          <div id="demo${e.id}1" class="collapse">
+            <div class="tab-content">
+              <div class="tab-pane container active" id="${e.id}1">
+                <img src="img/thuphaphl.png" alt="">
+              </div>
+              <div class="tab-pane container fade" id="${e.id}2">
+                <img src="img/thuphap1.png" alt="">
+              </div>
+              <div class="tab-pane container fade" id="${e.id}3">
+                <img src="img/thuphap3.png" alt="">
+              </div>
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-bs-toggle="tab" href="#${e.id}1">Font 01</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#${e.id}2">Font 02</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#${e.id}3">Font 03</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `;
+      
+    });
+    
+    $("#productA").html(a);
     
 }
-
-
 // function searchInfo(){
 //   var mysearch = $("#search").val();
 //   var s = "";
